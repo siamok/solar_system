@@ -39,9 +39,9 @@ class Star (Star_system):
     def __repr__(self):
         return repr((self.name,self.mass,self.radius,self.no_of_plnts))
     def __str__(self):
-        return "Nazwa gwiazdy: %s\nMasa: %.2ekg\
-    \nPromien: %.2fkm\
-    \nLiczba planet:%d\n" % (self.name,self.mass,self.radius,self.no_of_plnts)
+        return "Name of the star: %s\nMass: %.2ekg\
+    \nRadius: %.2fkm\
+    \nNumbers of the planets:%d\n" % (self.name,self.mass,self.radius,self.no_of_plnts)
     def show_planets(self):
         for i in range(self.no_of_plnts):
             print self.planets[i]
@@ -53,9 +53,9 @@ class Planet (Star_system):
         self.radius = radius
         self.dist_from_star = dist_from_star
     def __str__(self):
-        return "Nazwa planety: %s\nMasa: %.2ekg\
-    \nPromien: %.2fkm\
-    \nOdleglosc od gwiazdy:%fAU\n" % (self.name,self.mass,self.radius,self.dist_from_star/AU)
+        return "Name of the planet: %s\nMass: %.2ekg\
+    \nRadius: %.2fkm\
+    \nDistance from the star:%fAU\n" % (self.name,self.mass,self.radius,self.dist_from_star/AU)
         
     @classmethod
     def mk_planet(cls,lista):
@@ -71,3 +71,5 @@ if __name__ == "__main__":
     print ["name","mass","radius","no_of_plnts"]
     Sun=Star()
     print Sun
+    print "##################################"
+    print Sun.show_planets()
