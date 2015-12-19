@@ -10,27 +10,21 @@ jupiter = ["Jupiter", 1.8986*10**27,71492.0, 778412020.0]
 saturn = ["Saturn", 5.6846*10**26, 60268.0, 1426725413.0]
 uranus = ["Uranus", 8.6832*10**25, 25559.0, 2870972220.0]
 neptune = ["Neptune", 1*0244*10**26, 24764.0, 4498252900.0]
-#default_planets = ["Mercury","Venus","Earth","Mars","Jupiter","Saturn","Uranus","Neptune"]
-##default_planets = {"Mercury": mercury,"Venus":venus,"Earth":earth,
-##                   "Mars":mars,"Jupiter":jupiter,"Saturn":saturn,
-##                   "Uranus":uranus,"Neptune":neptune } #NIE JEST PO KOLEI!
+
 default_planets = [mercury,venus,earth,mars,jupiter,saturn,uranus,neptune]
 
 
-class Star_system (object):
-    def __init__(self,name="Solar system",mass=0):
+class Astro_object (object):
+    def __init__(self,name,mass):
         self.name = name
-        
-        
-        
-        
-class Star (Star_system):
+        self.mass = mass
+  
+class Star (Astro_object):
     planets = []
     def __init__(self,name = "Slonce" , mass=1.98855*10**30,
                  radius = 696342.0,typ = "yellow",no_of_plnts=8,
                  names_plnts=default_planets):
-        self.name = name
-        self.mass = mass
+        Astro_object.__init__(self,name,mass)
         self.radius = radius
         self.no_of_plnts = no_of_plnts
         for i in range(no_of_plnts):
@@ -46,10 +40,9 @@ class Star (Star_system):
         for i in range(self.no_of_plnts):
             print self.planets[i]
         
-class Planet (Star_system):
+class Planet (Astro_object):
     def __init__(self,name,mass,radius,dist_from_star):
-        self.name = name
-        self.mass = mass
+        Astro_object.__init__(self,name,mass)
         self.radius = radius
         self.dist_from_star = dist_from_star
     def __str__(self):
@@ -62,14 +55,14 @@ class Planet (Star_system):
         return Planet(lista[0],lista[1],lista[2],lista[3])
             
         
-##class Moon (Astrom_object):
-##    def __init__(self,name,mass,radius,dist_from_planet):
-##        pass
+class Solar_sys (Planet,Star):
+    def __init__(self,name,mass,radius,dist_from_planet):
+        pass
 
 
 if __name__ == "__main__":
-    print ["name","mass","radius","no_of_plnts"]
+    #print ["name","mass","radius","no_of_plnts"]
     Sun=Star()
     print Sun
     print "##################################"
-    print Sun.show_planets()
+    Sun.show_planets()
