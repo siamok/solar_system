@@ -46,9 +46,16 @@ class Planet (Astro_object):
     @classmethod
     def mk_planet(cls,plnts_dict):
         return (Planet.__init__(self,plnts_dict))
-    def __getitem__(self,str):
-        return self.name
-        
+    def __getitem__(self,key):
+        if not isinstance(key,str):
+            raise ValueError()
+        if not key.lower() in dir(self):
+            raise ValueError()
+##        import sys
+##        from sys import getattr
+        return getattr(self,key.lower())
+
+    
 class Star_system:
     planets = []
     def __init__(self,name="Solar System",star_info=default_star,names_plnts=default_planets):
