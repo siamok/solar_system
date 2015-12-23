@@ -72,4 +72,5 @@ class Star_system:
 if __name__ == "__main__":
     star_system = Star_system()
     print star_system
+    raw_input()
 
