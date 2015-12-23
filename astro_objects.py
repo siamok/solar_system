@@ -51,8 +51,6 @@ class Planet (Astro_object):
             raise ValueError()
         if not key.lower() in dir(self):
             raise ValueError()
-##        import sys
-##        from sys import getattr
         return getattr(self,key.lower())
 
     
