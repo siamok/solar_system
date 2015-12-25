@@ -4,7 +4,7 @@
 AU = 149597870.7 ## do skalowania jakbym robił GUI albo to wsadze w innym pliku
 mercury = {"Name":"Mercury", "Mass":3.3302*10**23, "Radius":2439.7, "Dist_to_star":57909176.0}
 venus = {"Name":"Venus", "Mass":4.8685*10**24, "Radius":6051.85, "Dist_to_star":108208926.0}
-earth = {"Name":"Earth", "Mass":5.97219*1024, "Radius":6378.1366, "Dist_to_star":149598261.0}
+earth = {"Name":"Earth", "Mass":5.97219*10**24, "Radius":6378.1366, "Dist_to_star":149598261.0}
 mars = {"Name":"Mars", "Mass":3.3302*10**23, "Radius":3402.45, "Dist_to_star":227936637.0}
 jupiter = {"Name":"Jupiter", "Mass":1.8986*10**27,"Radius":71492.0, "Dist_to_star":778412020.0}
 saturn = {"Name":"Saturn", "Mass":5.6846*10**26, "Radius":60268.0, "Dist_to_star":1426725413.0}
@@ -49,7 +49,7 @@ class Planet (Astro_object):
     def __getitem__(self,key):
         if not isinstance(key,str):
             raise ValueError()
-        if not key.lower() in dir(self):
+        if not key.lower() in dir(self):# czy jest taka obiekt w tej klasie
             raise ValueError()
         return getattr(self,key.lower())
 
